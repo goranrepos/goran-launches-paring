@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import { GetServerSideProps } from 'next';
 import { ILaunch } from '../Types';
+import SpaceXCard from '../components/SpaceXCard';
 
 const querySpaceX = {
   query: {},
@@ -78,21 +79,9 @@ export default function Home({ spacex }: { spacex: ILaunch[] }) {
           const { id, name, links, failures, success, cores, date_utc } = obj;
           const date = new Date(date_utc);
           const formattedDate = date.toLocaleDateString();
+          const imgSrc = links.patch.small;
           return (
-            <div className={styles.item} key={id}>
-              <h2>Name: {name}</h2>
-              <p>Date: {formattedDate}</p>
-              <p>Core Serial: {cores[0].core.serial}</p>
-              <Image alt={name} src={links.patch.small} width="200" height="200" />
-              {success && <p>Success</p>}
-              {failures[0] && (
-                <>
-                  {failures[0]?.altitude && <p>Failures Altitude: {failures[0]?.altitude}</p>}
-                  {failures[0]?.reason && <p>Failures Reason: {failures[0]?.reason}</p>}
-                  {failures[0]?.time && <p>Failures Time: {failures[0]?.time}</p>}
-                </>
-              )}
-            </div>
+            <SpaceXCard {...{id, name, imgSrc , failures, success, cores, formattedDate}} key={id}/>
           );
         })}
       </div>
