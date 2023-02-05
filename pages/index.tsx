@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import { GetServerSideProps } from 'next';
 import { ILaunch } from '../Types';
