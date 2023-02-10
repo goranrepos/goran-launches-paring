@@ -1,6 +1,6 @@
 import styles from '../styles/Home.module.css';
 import { GetServerSideProps } from 'next';
-import { ILaunch } from '../Types';
+import { ILaunch } from '../../Types';
 import SpaceXCard from '../components/SpaceXCard';
 
 const querySpaceX = {

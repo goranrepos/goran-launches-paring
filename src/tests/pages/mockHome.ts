@@ -1,4 +1,4 @@
-import { ILaunch } from "../../Types";
+import { ILaunch } from "../../../Types";
 
 export const spacexData: ILaunch[] = [
     {

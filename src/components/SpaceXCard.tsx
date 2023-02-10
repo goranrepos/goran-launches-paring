@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
-import { ICore, IFailure } from '../Types';
+import { ICore, IFailure } from '../../Types';
 
 export interface ISPaceXCard {
   id: string;
